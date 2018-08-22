@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <title>Keyboard Drum Pad</title>
+    <style>
+        .drum-pad {
+            background: #222;
+            width: 23%;
+            float: left;
+            margin: 1%;
+            border-radius: 12px;
+            transition: all 0.25s;
+        }  
+        
+        .letter {
+            font-size: 30px;
+            line-height: 21px;
+        }
+        
+        .description {
+            font-size: 12px;
+        }
+        
+        .my-text {
+            padding-top: 35%;
+        }
+        
+        .active {
+            background-color: dodgerblue;
+            transform: scale(0.85);
+        }
+        
+        @media only screen and (max-width: 600px) {
+            .my-text {
+                padding-top: 21%;
+            }
+        }
+    </style>
+  </head>
+  <body class="bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Keyboard Drum Pad</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="http://limzhiyang.com/codetolearn/" target="_blank">Code to Learn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://limzhiyang.com/profile/" target="_blank">About Me</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mt-5 mb-5">
+      <div class="row">
+            <div class="col-sm-2 col-xs-1"></div>
+            <div class="col-sm-8 col-xs-12">
+                <h1 class="text-center text-white">Virtual Drum Pad</h1>
+                <p class="text-center text-light">Create beats in your browser, press the letter on your keyboard.</p>
+
+                <div class="drum-pad" id="pad-hat" data-pad="65">
+                    <div class="my-text">
+                        <p class="text-white text-center letter"><b>A</b><br><small class="description text-light">Hat</small></p>
+                    </div>
+                </div>
+
+                <div class="drum-pad" id="pad-snare" data-pad="83">
+                    <div class="my-text">
+                        <p class="text-white text-center letter"><b>S</b><br><small class="description text-light">Snare</small></p>
+                    </div>
+                </div>
+
+                <div class="drum-pad" id="pad-kick" data-pad="68">
+                    <div class="my-text">
+                        <p class="text-white text-center letter"><b>D</b><br><small class="description text-light">Kick</small></p>
+                    </div>
+                </div>
+
+                <div class="drum-pad" id="pad-clap" data-pad="70">
+                    <div class="my-text">
+                        <p class="text-white text-center letter"><b>F</b><br><small class="description text-light">Clap</small></p>
+                    </div>
+                </div>
+
+                <div class="drum-pad" id="pad-crash1" data-pad="71">
+                    <div class="my-text">
+                        <p class="text-white text-center letter"><b>G</b><br><small class="description text-light">Crash 1</small></p>
+                    </div>
+                </div>
+
+                <div class="drum-pad" id="pad-crash2" data-pad="72">
+                    <div class="my-text">
+                        <p class="text-white text-center letter"><b>H</b><br><small class="description text-light">Crash 2</small></p>
+                    </div>
+                </div>
+
+                <div class="drum-pad" id="pad-boom" data-pad="74">
+                    <div class="my-text">
+                        <p class="text-white text-center letter"><b>J</b><br><small class="description text-light">Boom</small></p>
+                    </div>
+                </div>
+
+                <div class="drum-pad" id="pad-perc" data-pad="75">
+                    <div class="my-text">
+                        <p class="text-white text-center letter"><b>K</b><br><small class="description text-light">Perc</small></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-xs-1"></div>
+      </div>
+    </div>
+      
+    <audio id="hat" data-pad="65" src="sounds/hat.wav"></audio>
+    <audio id="snare" data-pad="83" src="sounds/snare.wav"></audio>
+    <audio id="kick" data-pad="68" src="sounds/kick.wav"></audio>
+    <audio id="clap" data-pad="70" src="sounds/clap.wav"></audio>
+    <audio id="crash-one" data-pad="71" src="sounds/crash.wav"></audio>
+    <audio id="crash-two" data-pad="72" src="sounds/crash2.wav"></audio>
+    <audio id="boom" data-pad="74" src="sounds/boom.wav"></audio>
+    <audio id="perc" data-pad="75" src="sounds/perc.wav"></audio>
+
+<!--
+    <audio id="hat" data-pad="hat" src="sounds/hat.wav"></audio>
+    <audio id="snare" data-pad="snare" src="sounds/snare.wav"></audio>
+    <audio id="kick" data-pad="kick" src="sounds/kick.wav"></audio>
+    <audio id="clap" data-pad="clap" src="sounds/clap.wav"></audio>
+    <audio id="crash-one" data-pad="crash" src="sounds/crash.wav"></audio>
+    <audio id="crash-two" data-pad="crash2" src="sounds/crash2.wav"></audio>
+    <audio id="boom" data-pad="boom" src="sounds/boom.wav"></audio>
+    <audio id="perc" data-pad="perc" src="sounds/perc.wav"></audio>
+-->
+        
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    
+    <script>
+        
+        function setDrumPadHeight() {
+            var drumPadWidth = document.getElementById("pad-hat").offsetWidth;
+            var selectAllPad = document.querySelectorAll(".drum-pad");
+            for (i = 0; i < selectAllPad.length; i++){
+                selectAllPad[i].style.height = drumPadWidth + "px";
+            }           
+        }
+        
+        setDrumPadHeight();
+        
+        window.onresize = function(event) {
+            setDrumPadHeight();
+        };
+        
+        function playSound(e) {
+            const audio = document.querySelector('audio[data-pad="' + e.keyCode + '"]');  
+            const key = document.querySelector('div[data-pad="' + e.keyCode + '"]');  
+            
+            if (!audio) {
+                
+            } else {
+                audio.currentTime = 0;
+                audio.play();
+                key.classList.add("active");
+            }
+        }
+        
+        const keys = document.querySelectorAll(".drum-pad");  
+        keys.forEach(addListener);
+        
+        function addListener(item) {
+            item.addEventListener('transitionend', removeTransition);
+        }
+        
+        function removeTransition(e) {
+            if(e.propertyName !== 'transform') {
+                return;
+            } else {
+                this.classList.remove("active");
+            }
+        }
+        
+        window.addEventListener('keydown', playSound);
+            
+        
+        /*
+        
+        Longer method - old code
+        
+        function setDrumPadHeight() {
+            var drumPadWidth = document.getElementById("pad-hat").offsetWidth;
+            $('.drum-pad').height(drumPadWidth);
+        }
+        
+        setDrumPadHeight();
+        
+        window.onresize = function(event) {
+            setDrumPadHeight();
+        };
+        
+        document.onkeydown = function(event) {
+            var code = event.which || event.keyCode;
+            console.log(code);
+            
+            switch(code) {
+                case 65:
+                    var hat = document.getElementById("hat"); 
+                    hat.play();
+                    $("#pad-hat").addClass('active');
+                    setTimeout(function () {
+                        $("#pad-hat").removeClass('active');
+                    }, 500);
+                    break;
+                case 83:
+                    var snare = document.getElementById("snare"); 
+                    snare.play();
+                    $("#pad-snare").addClass('active');
+                    setTimeout(function () {
+                        $("#pad-snare").removeClass('active');
+                    }, 500);
+                    break;
+                case 68:
+                    var kick = document.getElementById("kick"); 
+                    kick.play();
+                    $("#pad-kick").addClass('active');
+                    setTimeout(function () {
+                        $("#pad-kick").removeClass('active');
+                    }, 500);
+                    break;
+                case 70:
+                    var clap = document.getElementById("clap"); 
+                    clap.play();
+                    $("#pad-clap").addClass('active');
+                    setTimeout(function () {
+                        $("#pad-clap").removeClass('active');
+                    }, 500);
+                    break;
+                case 71:
+                    var crash1 = document.getElementById("crash-one"); 
+                    crash1.play();
+                    $("#pad-crash1").addClass('active');
+                    setTimeout(function () {
+                        $("#pad-crash1").removeClass('active');
+                    }, 500);
+                    break;
+                case 72:
+                    var crash2 = document.getElementById("crash-two"); 
+                    crash2.play();
+                    $("#pad-crash2").addClass('active');
+                    setTimeout(function () {
+                        $("#pad-crash2").removeClass('active');
+                    }, 500);
+                    break;
+                case 74:
+                    var boom = document.getElementById("boom"); 
+                    boom.play();
+                    $("#pad-boom").addClass('active');
+                    setTimeout(function () {
+                        $("#pad-boom").removeClass('active');
+                    }, 500);
+                    break;
+                case 75:
+                    var perc = document.getElementById("perc"); 
+                    perc.play();
+                    $("#pad-perc").addClass('active');
+                    setTimeout(function () {
+                        $("#pad-perc").removeClass('active');
+                    }, 500);
+                    break;
+             }
+             event.preventDefault();
+        }
+        */
+        
+    </script>
+      
+  </body>
+</html>
